@@ -35,9 +35,6 @@ public class MainActivity extends CordovaActivity
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
             moveTaskToBack(true);
         }
-         //hello sujeet
-        //Hi this is sujeet kumar
-        //some line change this code
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
     }
