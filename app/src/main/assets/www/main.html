@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head><script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/C0AF2FD9-1274-2E4F-9931-00791467C438/main.js" charset="UTF-8">
+</script><script type="text/javascript" src="../js/tinybox.js"></script>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <title>eventcloud™ | What's on Where and When™</title>
+
+    <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />-->
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="../app.png"/>
+    <meta name="apple-mobile-web-app-title" content="eventcloud">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+
+
+
+
+    <link href="http://eventcloud.co.uk/iapp/layout/structure.css" rel="stylesheet" type="text/css" media="all" />
+    <!--<script src="http://eventcloud.co.uk/iapp/layout/control.js" type="text/javascript" charset="utf-8"></script>-->
+    <link href="http://eventcloud.co.uk/iapp/layout/event.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body onload="document.getElementById('iapp_loading').style.display='none';">
+<div id="iapp_loading"></div>
+
+<div id="theaderblur"></div>
+
+
+
+
+<!--margin:8px 0 0-->
+
+
+
+<div id="theader">
+
+    <div style="float: left; margin: 12px 0px 0px 0; width: 5%;"><img onclick="javascript:history.back()" height="25px" src="images/left.png"></div>
+    <h1 style='text-indent:-4.5%'>Search Events</h1>
+    <div style="width: 5%; right: 10px; top: 10px; position: fixed;"><img onclick="window.location='join_event.html'" style="cursor:pointer" width="25px" height="26px" src="images/plus.png"></div>
+
+
+</div>
+
+<div id="container">
+
+    <div id="content">
+
+        <div style="width:100%; height:50px; background:#eee;"></div>
+
+
+
+
+
+
+
+
+        <script type="text/javascript">
+
+		function send_value()
+		{
+			//alert(navigator.userAgent);
+
+			document.getElementById('newwhere2').value=document.getElementById('where2').value;
+			var old_date=document.getElementById('this_date').value;
+			//alert(document.getElementById('newthisdate').value);
+			//alert(old_date);
+			old_date = old_date.split("/");
+			old_date = old_date.reverse();
+			old_date = old_date.join("-");
+			//alert(newdate);
+			document.getElementById('newthisdate').value=old_date;
+			//document.getElementById('this_date').value=old_date;
+			document.getElementById('frmsearch').submit();
+		//	document.search_form.submit();
+
+		}
+		</script>
+
+
+        <!--  <input type="hidden" name="template_id" id="templateIDID" value="" />-->
+
+
+
+
+
+        <label></label>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+        <script src="http://www.eventcloud.co.uk/iapp/js/jquery.autocomplete.js" type="text/javascript"></script>
+
+        <link href="http://www.eventcloud.co.uk/iapp/_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all" />
+
+        <script type="text/javascript">
+				<!--
+				$(document).ready(function() {
+					$('#keyword').autocomplete(
+					'http://eventcloud.co.uk/autocomplete_keyword.php?module=event',
+						{
+							delay:10,
+							dataType: 'html',
+							minChars:2,
+							matchSubset:0,
+							selectFirst:0,
+							matchContains:1,
+							cacheLength:25,
+							autoFill:false,
+							maxItemsToShow:25,
+							max:25						}
+					);
+				});
+				-->
+			</script>
+
+
+
+        <label></label>
+        <form method="get" action="results.php" name="frmsearchkey" id="frmsearchkey">
+
+            <div id="pagebreak" style="">
+
+
+                <!--<input type="text" lang="en" style="font-size:13px;width:70%; margin:5px 0.5% 5px 2.5%; height:30px; -webkit-appearance:none; outline:none; padding:0 1%; line-height:30px; border:thin solid #fff; color:#888; padding-left:3% !important; background-size: auto 90%; border-radius:5px;" x-webkit-speech="" placeholder="Keyword Search..." name="keyword"/>
+
+                <div style="height:32px;margin:5px 0.1% 5px 0.1%;width: 20.5%;float: right;">
+                <input type="button"   onclick="this.form.submit();" style=" -webkit-appearance:none; outline:none; border: thin solid #d4d4d4;cursor: pointer; width: 86%;background:transparent url(../../images/serch-icn.png)  no-repeat 42% 5px; border-radius:5px; height:32px; padding:6px;" />-->
+
+                <input type="text" lang="en" style="font-size:13px;width:72.5%; margin:5px 0.5% 5px 2.5%; height:30px; -webkit-appearance:none; outline:none; padding:0 1%; line-height:30px; border:thin solid #fff; color:#888; padding-left:3% !important; background-size: auto 90%; border-radius:5px;" x-webkit-speech="" placeholder="Keyword Search..." name="keyword"/>
+
+                <div style="height:32px;margin:5px 0.1% 5px 0.1%;width: 19%;float: right;">
+                    <input type="button"   onclick="this.form.submit();" style=" -webkit-appearance:none; outline:none; border: thin solid #d4d4d4;cursor: pointer; width: 90%;background:transparent url(images/search_03.png); background-position: center; background-repeat: no-repeat; background-size: 24px auto; no-repeat 50% 5px; border-radius:5px; height:32px; padding:6px;" />
+                </div>
+
+
+
+
+
+            </div>
+        </form>
+
+
+
+        <form method="get" action="results.php" name="frmsearch" id="frmsearch">
+
+            <input type="hidden" name="where" id="newwhere2" value="" />
+            <input type="hidden" name="accepted_date" value="" id="newthisdate" />
+
+
+
+
+            <style>
+.for_search{
+width:86%;
+margin:5px 0.1%;
+height:30px;
+-webkit-appearance:none;
+background-size:auto 50% !important;
+outline:none; padding:0 1%;
+padding-left:7%;
+line-height:30px;
+border:thin solid #fff;
+color:#999 !important;
+font-size:12px;
+}
+.date_sear_sec {
+    background-position: right center, 3% center !important;
+    background-repeat: no-repeat !important;
+    background-size: 80px auto, 20px auto !important;
+    border-radius: 0 !important;
+    color: #999 !important;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    outline: medium none;
+    padding: 0 3% 0 10%;
+    width: 83%;
+	-webkit-appearance:none;
+	outline:none;
+}
+/*.date_sear_sec {
+width:96%; height:40px; -webkit-appearance:none; outline:none;  line-height:40px;  background: #fff; border-radius:0px !important; color:#999; font-size:12px; padding:0px !important; margin:0px !important; background: url(http://eventcloud.co.uk/iapp/images/select.png) no-repeat right center #fff !important; background-size:80px !important;*/
+}
+
+
+
+</style>
+
+
+
+
+
+
+            <script type="text/javascript">
+					<!--
+					$(document).ready(function() {
+						$('#where2').autocomplete(
+						'http://eventcloud.co.uk/autocomplete_location.php',
+							{
+								delay:10,
+								minChars:2,
+								matchSubset:0,
+								selectFirst:0,
+								matchContains:1,
+								cacheLength:25,
+								autoFill:false,
+								maxItemsToShow:25,
+								max:25							}
+						);
+					});
+					-->
+				</script>
+
+
+            <style>
+			/*select
+			{
+			height: 26px !important;
+			background:#DFDCDC !important;
+			color:#000!important;
+			padding-top:3px!important;;
+			background: url(http://eventcloud.co.uk/iapp/images/date.png) no-repeat right center #fff;
+			}*/
+			.new_select{background:none;
+			}
+
+			</style>
+            <script src="http://www.eventcloud.co.uk/datetimepicker_css2.js"></script>
+            <div style="height:42px; -webkit-appearance:none; outline:none;   line-height:40px; border-top:thin solid #ddd;border-bottom:thin solid #ddd; background: #fff; border-radius:0px !important; color:#ccc; padding:0px !important; padding-left:1% !important; margin:0px !important; ">
+                <input class="for_search" type="text" name="where" id="where2"  placeholder="Location..."    style="background: url(http://eventcloud.co.uk/iapp/images/locatione.png) no-repeat 2% center #fff;"  />
+
+            </div>
+
+
+
+            <input class="date_sear_sec" type="date"  name="this_date" placeholder="DD/MM/YYY" id="this_date"  style="background: url(http://eventcloud.co.uk/iapp/images/date.png), url(http://eventcloud.co.uk/iapp/images/datei.png) #fff; " />
+
+
+
+            <style type="text/css">
+	#category_id{
+		width:96% !important;
+	}
+	.toolimg{
+		float:left;
+		display:block;
+		width:20px;
+		margin-right:2%;
+	}
+	.toolimg img{
+		width:100%;
+		height:auto;
+		float:left;
+		margin-top:12px;
+	}
+</style>
+
+
+            <span class="clear"></span>
+            <style>
+/*#category_id{
+	background: url("http://www.eventcloud.co.uk/iapp/images/select.png") no-repeat scroll right 13px / 80px auto #FFFFFF !important;
+	-webkit-appearance:none;
+	color: #999999 !important;
+}
+
+select{
+	width:96%; height:40px;
+	-webkit-appearance:none;
+	outline:none;
+	line-height:40px;
+	background: #fff;
+	border-radius:0px !important;
+	color:#999;
+	padding:0px !important;
+	margin:0px !important;
+	background: url(http://eventcloud.co.uk/iapp/images/select.png) no-repeat right center #fff;
+	background-size:80px;
+}*/
+
+select{width:96%; height:40px; -webkit-appearance:none; outline:none;  line-height:40px;  background: #fff; border-radius:0px !important; color:#999; font-size:12px; padding:0px !important; margin:0px !important; background: url(http://eventcloud.co.uk/iapp/images/select.png) no-repeat right center #fff !important; background-size:80px !important;}
+</style>
+
+            <div style="width:97%; height:42px; -webkit-appearance:none; outline:none;   line-height:40px; border-top:thin solid #ddd;border-bottom:thin solid #ddd; background: #fff; border-radius:0px !important; color:#ccc; padding:0px !important; padding-left:3% !important; margin:0px !important; ">
+                <span class="toolimg"><img src="http://www.eventcloud.co.uk/iapp/images/category-icon-search.png" alt="" /></span>
+                <fieldset class="baseAdvancedSearch2" style="">
+
+                    <select name="category_id" id="category_id"   >
+                        <option value="">Category (Optional)</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="3" class="searchCategory" >Arts, Theatre &amp; Comedy</option>
+                        <option value="62" class="searchSubcategory" >&nbsp;&nbsp;Alternative Dance</option>
+                        <option value="60" class="searchSubcategory" >&nbsp;&nbsp;Ballet</option>
+                        <option value="64" class="searchSubcategory" >&nbsp;&nbsp;Classical</option>
+                        <option value="65" class="searchSubcategory" >&nbsp;&nbsp;Comedy</option>
+                        <option value="63" class="searchSubcategory" >&nbsp;&nbsp;Culture</option>
+                        <option value="61" class="searchSubcategory" >&nbsp;&nbsp;Dance</option>
+                        <option value="66" class="searchSubcategory" >&nbsp;&nbsp;Drama</option>
+                        <option value="73" class="searchSubcategory" >&nbsp;&nbsp;Exhibitions</option>
+                        <option value="166" class="searchSubcategory" >&nbsp;&nbsp;Fairs</option>
+                        <option value="68" class="searchSubcategory" >&nbsp;&nbsp;Historic</option>
+                        <option value="67" class="searchSubcategory" >&nbsp;&nbsp;Museum</option>
+                        <option value="69" class="searchSubcategory" >&nbsp;&nbsp;Musical</option>
+                        <option value="70" class="searchSubcategory" >&nbsp;&nbsp;Opera</option>
+                        <option value="71" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="128" class="searchSubcategory" >&nbsp;&nbsp;TV Shows</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="181" class="searchCategory" >Business</option>
+                        <option value="187" class="searchSubcategory" >&nbsp;&nbsp;Business Fairs</option>
+                        <option value="182" class="searchSubcategory" >&nbsp;&nbsp;Commercial Activities</option>
+                        <option value="184" class="searchSubcategory" >&nbsp;&nbsp;Exhibition Centers</option>
+                        <option value="183" class="searchSubcategory" >&nbsp;&nbsp;Network Meetings</option>
+                        <option value="186" class="searchSubcategory" >&nbsp;&nbsp;Seminars &amp; Talks</option>
+                        <option value="217" class="searchSubcategory" >&nbsp;&nbsp;Shops</option>
+                        <option value="188" class="searchSubcategory" >&nbsp;&nbsp;Trade Shows</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="25" class="searchCategory" >Charity, Aid &amp; Religious</option>
+                        <option value="115" class="searchSubcategory" >&nbsp;&nbsp;Charity</option>
+                        <option value="117" class="searchSubcategory" >&nbsp;&nbsp;Community Event</option>
+                        <option value="120" class="searchSubcategory" >&nbsp;&nbsp;Fundraiser</option>
+                        <option value="121" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="180" class="searchSubcategory" >&nbsp;&nbsp;Religious</option>
+                        <option value="119" class="searchSubcategory" >&nbsp;&nbsp;School Fundraiser</option>
+                        <option value="116" class="searchSubcategory" >&nbsp;&nbsp;Social Event</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="150" class="searchCategory" >Community &amp; Social Activities</option>
+                        <option value="155" class="searchSubcategory" >&nbsp;&nbsp;Corporate</option>
+                        <option value="151" class="searchSubcategory" >&nbsp;&nbsp;Dating</option>
+                        <option value="154" class="searchSubcategory" >&nbsp;&nbsp;Ecology</option>
+                        <option value="156" class="searchSubcategory" >&nbsp;&nbsp;Economic</option>
+                        <option value="157" class="searchSubcategory" >&nbsp;&nbsp;Environmental</option>
+                        <option value="153" class="searchSubcategory" >&nbsp;&nbsp;Humanitarian</option>
+                        <option value="169" class="searchSubcategory" >&nbsp;&nbsp;Markets</option>
+                        <option value="152" class="searchSubcategory" >&nbsp;&nbsp;Political</option>
+                        <option value="189" class="searchSubcategory" >&nbsp;&nbsp;Social Clubs</option>
+                        <option value="222" class="searchSubcategory" >&nbsp;&nbsp;Street Entertainment</option>
+                        <option value="167" class="searchSubcategory" >&nbsp;&nbsp;Trade Shows / Fairs</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="7" class="searchCategory" >Educational</option>
+                        <option value="124" class="searchSubcategory" >&nbsp;&nbsp;History</option>
+                        <option value="127" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="123" class="searchSubcategory" >&nbsp;&nbsp;Political</option>
+                        <option value="126" class="searchSubcategory" >&nbsp;&nbsp;Religion</option>
+                        <option value="122" class="searchSubcategory" >&nbsp;&nbsp;Science</option>
+                        <option value="159" class="searchSubcategory" >&nbsp;&nbsp;Seminars</option>
+                        <option value="125" class="searchSubcategory" >&nbsp;&nbsp;Technology</option>
+                        <option value="158" class="searchSubcategory" >&nbsp;&nbsp;Training Courses</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="130" class="searchCategory" >Entertainment &amp; Experiences</option>
+                        <option value="131" class="searchSubcategory" >&nbsp;&nbsp;Boat Trips/Tours</option>
+                        <option value="132" class="searchSubcategory" >&nbsp;&nbsp;Bus Tours</option>
+                        <option value="133" class="searchSubcategory" >&nbsp;&nbsp;Car/Track Driving Days</option>
+                        <option value="134" class="searchSubcategory" >&nbsp;&nbsp;Clay Shooting</option>
+                        <option value="173" class="searchSubcategory" >&nbsp;&nbsp;Go Karting</option>
+                        <option value="135" class="searchSubcategory" >&nbsp;&nbsp;Helicopter Flights</option>
+                        <option value="136" class="searchSubcategory" >&nbsp;&nbsp;History Tours</option>
+                        <option value="137" class="searchSubcategory" >&nbsp;&nbsp;Hot Air Balloon Flights</option>
+                        <option value="174" class="searchSubcategory" >&nbsp;&nbsp;Indoor Climbing</option>
+                        <option value="138" class="searchSubcategory" >&nbsp;&nbsp;Indoor Skiing</option>
+                        <option value="139" class="searchSubcategory" >&nbsp;&nbsp;Indoor skydiving</option>
+                        <option value="140" class="searchSubcategory" >&nbsp;&nbsp;Indoor Snowboarding</option>
+                        <option value="178" class="searchSubcategory" >&nbsp;&nbsp;Outdoor Skiing</option>
+                        <option value="177" class="searchSubcategory" >&nbsp;&nbsp;Outdoor Snowboarding</option>
+                        <option value="142" class="searchSubcategory" >&nbsp;&nbsp;Paintballing</option>
+                        <option value="176" class="searchSubcategory" >&nbsp;&nbsp;Quad Biking</option>
+                        <option value="143" class="searchSubcategory" >&nbsp;&nbsp;Scuba Diving</option>
+                        <option value="179" class="searchSubcategory" >&nbsp;&nbsp;Skydiving</option>
+                        <option value="144" class="searchSubcategory" >&nbsp;&nbsp;Spa Days</option>
+                        <option value="145" class="searchSubcategory" >&nbsp;&nbsp;Surfing</option>
+                        <option value="171" class="searchSubcategory" >&nbsp;&nbsp;Tour Guide</option>
+                        <option value="146" class="searchSubcategory" >&nbsp;&nbsp;Wakeboarding</option>
+                        <option value="147" class="searchSubcategory" >&nbsp;&nbsp;Water Skiing</option>
+                        <option value="148" class="searchSubcategory" >&nbsp;&nbsp;Whitewater Rafting</option>
+                        <option value="149" class="searchSubcategory" >&nbsp;&nbsp;Wind Surfing</option>
+                        <option value="172" class="searchSubcategory" >&nbsp;&nbsp;Wine Tasting</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="11" class="searchCategory" >Family &amp; Attractions</option>
+                        <option value="165" class="searchSubcategory" >&nbsp;&nbsp;Carnivals</option>
+                        <option value="72" class="searchSubcategory" >&nbsp;&nbsp;Exhibitions</option>
+                        <option value="168" class="searchSubcategory" >&nbsp;&nbsp;Fairs</option>
+                        <option value="74" class="searchSubcategory" >&nbsp;&nbsp;Family Attractions</option>
+                        <option value="75" class="searchSubcategory" >&nbsp;&nbsp;Family Shows</option>
+                        <option value="76" class="searchSubcategory" >&nbsp;&nbsp;Fashion Shows</option>
+                        <option value="77" class="searchSubcategory" >&nbsp;&nbsp;Flower Shows</option>
+                        <option value="78" class="searchSubcategory" >&nbsp;&nbsp;Ice Rinks</option>
+                        <option value="79" class="searchSubcategory" >&nbsp;&nbsp;Ice Shows</option>
+                        <option value="170" class="searchSubcategory" >&nbsp;&nbsp;Markets</option>
+                        <option value="81" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="80" class="searchSubcategory" >&nbsp;&nbsp;Pantomine</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="8" class="searchCategory" >Festivals</option>
+                        <option value="85" class="searchSubcategory" >&nbsp;&nbsp;Art</option>
+                        <option value="86" class="searchSubcategory" >&nbsp;&nbsp;Comedy</option>
+                        <option value="83" class="searchSubcategory" >&nbsp;&nbsp;Drink</option>
+                        <option value="82" class="searchSubcategory" >&nbsp;&nbsp;Food</option>
+                        <option value="84" class="searchSubcategory" >&nbsp;&nbsp;Music</option>
+                        <option value="87" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="24" class="searchCategory" >Fitness</option>
+                        <option value="106" class="searchSubcategory" >&nbsp;&nbsp;Boxercise</option>
+                        <option value="112" class="searchSubcategory" >&nbsp;&nbsp;Cycling</option>
+                        <option value="103" class="searchSubcategory" >&nbsp;&nbsp;Dancing</option>
+                        <option value="110" class="searchSubcategory" >&nbsp;&nbsp;Hiking</option>
+                        <option value="104" class="searchSubcategory" >&nbsp;&nbsp;Kettlercise</option>
+                        <option value="218" class="searchSubcategory" >&nbsp;&nbsp;Marathons</option>
+                        <option value="219" class="searchSubcategory" >&nbsp;&nbsp;Obstacle Courses</option>
+                        <option value="113" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="107" class="searchSubcategory" >&nbsp;&nbsp;Pilates</option>
+                        <option value="102" class="searchSubcategory" >&nbsp;&nbsp;Poll Fitness</option>
+                        <option value="109" class="searchSubcategory" >&nbsp;&nbsp;Running</option>
+                        <option value="105" class="searchSubcategory" >&nbsp;&nbsp;Spinning</option>
+                        <option value="111" class="searchSubcategory" >&nbsp;&nbsp;Walking</option>
+                        <option value="108" class="searchSubcategory" >&nbsp;&nbsp;Yoga</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="190" class="searchCategory" >Food &amp; Drink</option>
+                        <option value="196" class="searchSubcategory" >&nbsp;&nbsp;Banquets</option>
+                        <option value="195" class="searchSubcategory" >&nbsp;&nbsp;BBQ's</option>
+                        <option value="199" class="searchSubcategory" >&nbsp;&nbsp;Beer Sampling &amp; Festivals</option>
+                        <option value="200" class="searchSubcategory" >&nbsp;&nbsp;Brewing Classes &amp; Courses</option>
+                        <option value="197" class="searchSubcategory" >&nbsp;&nbsp;Cooking Classes</option>
+                        <option value="193" class="searchSubcategory" >&nbsp;&nbsp;Drinks Shows &amp; Stalls</option>
+                        <option value="192" class="searchSubcategory" >&nbsp;&nbsp;Food Shows &amp; Stalls</option>
+                        <option value="214" class="searchSubcategory" >&nbsp;&nbsp;Formal Dining</option>
+                        <option value="194" class="searchSubcategory" >&nbsp;&nbsp;Restaurant and Bar Openings</option>
+                        <option value="198" class="searchSubcategory" >&nbsp;&nbsp;Wine tasting</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="201" class="searchCategory" >Holidays Trips &amp; Tourism</option>
+                        <option value="202" class="searchSubcategory" >&nbsp;&nbsp;Beach Parties</option>
+                        <option value="203" class="searchSubcategory" >&nbsp;&nbsp;Boat Trips &amp; Parties</option>
+                        <option value="207" class="searchSubcategory" >&nbsp;&nbsp;Camping</option>
+                        <option value="211" class="searchSubcategory" >&nbsp;&nbsp;City Trips</option>
+                        <option value="212" class="searchSubcategory" >&nbsp;&nbsp;Climbing Experiences</option>
+                        <option value="213" class="searchSubcategory" >&nbsp;&nbsp;Great Outdoors</option>
+                        <option value="205" class="searchSubcategory" >&nbsp;&nbsp;Skiing</option>
+                        <option value="206" class="searchSubcategory" >&nbsp;&nbsp;Snowboarding</option>
+                        <option value="208" class="searchSubcategory" >&nbsp;&nbsp;Summer Events</option>
+                        <option value="204" class="searchSubcategory" >&nbsp;&nbsp;Tourism Trips</option>
+                        <option value="210" class="searchSubcategory" >&nbsp;&nbsp;Wildlife Trips</option>
+                        <option value="209" class="searchSubcategory" >&nbsp;&nbsp;Winter Events</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="23" class="searchCategory" >Music</option>
+                        <option value="26" class="searchSubcategory" >&nbsp;&nbsp;Alternative</option>
+                        <option value="27" class="searchSubcategory" >&nbsp;&nbsp;Club &amp; Dance</option>
+                        <option value="28" class="searchSubcategory" >&nbsp;&nbsp;Country/Folk</option>
+                        <option value="163" class="searchSubcategory" >&nbsp;&nbsp;Disco</option>
+                        <option value="175" class="searchSubcategory" >&nbsp;&nbsp;Drum N Bass</option>
+                        <option value="164" class="searchSubcategory" >&nbsp;&nbsp;Dubstep</option>
+                        <option value="223" class="searchSubcategory" >&nbsp;&nbsp;Funk</option>
+                        <option value="30" class="searchSubcategory" >&nbsp;&nbsp;Heavy Metal</option>
+                        <option value="161" class="searchSubcategory" >&nbsp;&nbsp;House</option>
+                        <option value="34" class="searchSubcategory" >&nbsp;&nbsp;Indie</option>
+                        <option value="36" class="searchSubcategory" >&nbsp;&nbsp;Jazz &amp; Blues</option>
+                        <option value="41" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="33" class="searchSubcategory" >&nbsp;&nbsp;Pop</option>
+                        <option value="37" class="searchSubcategory" >&nbsp;&nbsp;R &amp; B</option>
+                        <option value="35" class="searchSubcategory" >&nbsp;&nbsp;Rap &amp; Hip Hop</option>
+                        <option value="32" class="searchSubcategory" >&nbsp;&nbsp;Reggae</option>
+                        <option value="29" class="searchSubcategory" >&nbsp;&nbsp;Rock/Bands</option>
+                        <option value="39" class="searchSubcategory" >&nbsp;&nbsp;Soul</option>
+                        <option value="220" class="searchSubcategory" >&nbsp;&nbsp;Street Entertainment</option>
+                        <option value="160" class="searchSubcategory" >&nbsp;&nbsp;Techno</option>
+                        <option value="162" class="searchSubcategory" >&nbsp;&nbsp;Trance</option>
+                        <option value="31" class="searchSubcategory" >&nbsp;&nbsp;Tribute</option>
+                        <option value="38" class="searchSubcategory" >&nbsp;&nbsp;Urban</option>
+                        <option value="40" class="searchSubcategory" >&nbsp;&nbsp;World</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="4" class="searchCategory" >Nightlife</option>
+                        <option value="88" class="searchSubcategory" >&nbsp;&nbsp;Adult Entertainment</option>
+                        <option value="96" class="searchSubcategory" >&nbsp;&nbsp;Alternative Night</option>
+                        <option value="98" class="searchSubcategory" >&nbsp;&nbsp;Ball Room Dancing</option>
+                        <option value="89" class="searchSubcategory" >&nbsp;&nbsp;Bars</option>
+                        <option value="90" class="searchSubcategory" >&nbsp;&nbsp;Comedy Clubs</option>
+                        <option value="92" class="searchSubcategory" >&nbsp;&nbsp;Dance Clubs</option>
+                        <option value="100" class="searchSubcategory" >&nbsp;&nbsp;Dance Other</option>
+                        <option value="95" class="searchSubcategory" >&nbsp;&nbsp;Drum N Bass</option>
+                        <option value="94" class="searchSubcategory" >&nbsp;&nbsp;Electro Nights</option>
+                        <option value="99" class="searchSubcategory" >&nbsp;&nbsp;Latin Nights</option>
+                        <option value="101" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="129" class="searchSubcategory" >&nbsp;&nbsp;Poetry Nights</option>
+                        <option value="97" class="searchSubcategory" >&nbsp;&nbsp;Salsa Nights</option>
+                        <option value="91" class="searchSubcategory" >&nbsp;&nbsp;Student Nights</option>
+                        <option value="93" class="searchSubcategory" >&nbsp;&nbsp;Trance Nights</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                        <option value="12" class="searchCategory" >Sports &amp; Leisure</option>
+                        <option value="42" class="searchSubcategory" >&nbsp;&nbsp;Athletics</option>
+                        <option value="44" class="searchSubcategory" >&nbsp;&nbsp;Basketball</option>
+                        <option value="45" class="searchSubcategory" >&nbsp;&nbsp;Boxing</option>
+                        <option value="46" class="searchSubcategory" >&nbsp;&nbsp;Cricket</option>
+                        <option value="47" class="searchSubcategory" >&nbsp;&nbsp;Cycling</option>
+                        <option value="48" class="searchSubcategory" >&nbsp;&nbsp;Equestrian</option>
+                        <option value="16" class="searchSubcategory" >&nbsp;&nbsp;Extreme Sports</option>
+                        <option value="49" class="searchSubcategory" >&nbsp;&nbsp;Football</option>
+                        <option value="50" class="searchSubcategory" >&nbsp;&nbsp;Golf</option>
+                        <option value="51" class="searchSubcategory" >&nbsp;&nbsp;Gymnastics</option>
+                        <option value="52" class="searchSubcategory" >&nbsp;&nbsp;Hockey</option>
+                        <option value="53" class="searchSubcategory" >&nbsp;&nbsp;Horse Racing</option>
+                        <option value="54" class="searchSubcategory" >&nbsp;&nbsp;Ice Hockey</option>
+                        <option value="55" class="searchSubcategory" >&nbsp;&nbsp;Marshall Arts</option>
+                        <option value="56" class="searchSubcategory" >&nbsp;&nbsp;Motor Sports</option>
+                        <option value="59" class="searchSubcategory" >&nbsp;&nbsp;Other</option>
+                        <option value="57" class="searchSubcategory" >&nbsp;&nbsp;Rugby</option>
+                        <option value="215" class="searchSubcategory" >&nbsp;&nbsp;Swimming</option>
+                        <option value="58" class="searchSubcategory" >&nbsp;&nbsp;Tennis &amp; Squash</option>
+                        <option value="216" class="searchSubcategory" >&nbsp;&nbsp;Water Sports</option>
+                        <option value="43" class="searchSubcategory" >&nbsp;&nbsp;Wrestling</option>
+                        <option value="" class="searchSeparator" >&nbsp;</option>
+                    </select>
+                </fieldset>
+            </div>
+
+
+
+            <!--	<input type="hidden" name="template_id" id="templateIDID" value="" />
+    -->
+            <div style=" background:#fff; padding:10px 0;">
+                <button type="button" style=" cursor:pointer; width:95%; margin-left:2.5%; padding:10px 0; border-radius:4px; font-size:17px; background:#dfdcdc; text-align:center; color:#fff; " onclick="send_value();">Find Events</button>
+            </div></form>
+
+
+        <style>
+
+#cat-box{width:90%; margin-left:10%; font-size:16px; padding:15px 0; border-bottom: thin solid #ddd; font-family: 'Roboto', sans-serif; font-weight:300; color:#333;}
+
+#cat-cont{width:100%;}
+
+#cat-cont:hover{background:#ddd;}
+
+</style>
+
+
+
+        <div class="front"  style="background:#eee; margin-top:-0px !important; padding-top:30px; padding-bottom:60px; text-align:left !important;" >
+
+            <div style="width:90%; margin-left:10%; margin-bottom:10px;"><h1 style="font-family: 'Roboto', sans-serif; padding:0 !important; margin:0 !important; font-size:26px; color:#999; text-align:left !important; font-weight:300;">Browse by Category</h1></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=3';">Arts, Theatre &amp; Comedy</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=181';">Business</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=25';">Charity, Aid &amp; Religious</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=150';">Community &amp; Social Activities</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=7';">Educational</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=130';">Entertainment &amp; Experiences</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=11';">Family &amp; Attractions</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=8';">Festivals</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=24';">Fitness</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=190';">Food &amp; Drink</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=201';">Holidays Trips &amp; Tourism</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=23';">Music</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=4';">Nightlife</div></div><div id="cat-cont"><div id="cat-box" onclick="location.href='http://eventcloud.co.uk/iapp/event/results.php?category_id=12';">Sports &amp; Leisure</div></div>
+        </div>
+
+
+
+
+        <div id="tfooter">
+            <div id="navbox" onclick="location.href='http://eventcloud.co.uk/iapp/home.php';">
+                <img src="http://eventcloud.co.uk/iOSiapp/images/home-nav-icon.png" height="25px"  /><br />
+                Home
+            </div>
+
+            <div id="navbox" onclick="location.href='main.html';">
+                <img src="http://eventcloud.co.uk/iOSiapp/images/calendar.png" height="25px"  /><br />
+                Events
+            </div>
+
+            <div id="navbox" onclick="location.href='listing_main.html';">
+                <img src="http://eventcloud.co.uk/iOSiapp/images/venue.png" height="25px" /><br />
+                Venues
+            </div>
+
+            <div id="navbox" onclick="location.href='article_main.html';">
+                <img src="http://eventcloud.co.uk/iOSiapp/images/article.png" height="25px"  /><br />
+                Articles
+            </div>
+
+            <div id="navbox" onclick="location.href='promotion_main.html';">
+                <img src="http://eventcloud.co.uk/iapp/images/promo.png" height="25px"  /><br />
+                Promotions
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
